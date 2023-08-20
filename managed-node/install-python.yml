@@ -1,0 +1,21 @@
+- hosts: localhost
+  gather_facts: false
+  any_errors_fatal: true
+  tasks:
+    - name: Stat bin directory
+      stat:
+        path: "./../bin"
+      register: bin_directory
+
+    - name: Fail if bin directory does not exist
+      fail:
+        msg: "Directory \"bin\" does not exist. please execute \"download-bin.sh\" first"
+      when: not bin_directory.stat.exists or
+        not bin_directory.stat.isdir
+
+- hosts: all
+  gather_facts: false
+  any_errors_fatal: true
+  tasks:
+    - include_role:
+        name: install-python

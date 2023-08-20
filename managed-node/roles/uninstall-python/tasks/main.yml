@@ -1,0 +1,8 @@
+- name: "Create ansible installer directory if not exists"
+  raw: "mkdir -p /tmp/ansible-installer"
+
+- name: Copy scripts directory to hosts
+  local_action: command scp -P {{ ansible_port | default(22) }} -r ../scripts {{ ansible_host }}:/tmp/ansible-installer
+
+- name: Uninstall python
+  raw: "/tmp/ansible-installer/scripts/uninstall.sh"

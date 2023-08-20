@@ -1,0 +1,2 @@
+[all]
+#node1 ansible_host=node1.example.com ansible_port=22

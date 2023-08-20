@@ -1,0 +1,14 @@
+- name: "Create ansible installer directory if not exists"
+  raw: "mkdir -p /tmp/ansible-installer/bin"
+
+- name: Copy scripts directory to hosts
+  local_action: command scp -P {{ ansible_port | default(22) }} -r ../scripts {{ ansible_host }}:/tmp/ansible-installer
+
+- name: Copy python directory to hosts
+  local_action: command scp -P {{ ansible_port | default(22) }} -r ../bin/python {{ ansible_host }}:/tmp/ansible-installer/bin
+
+- name: Copy pip directory to hosts
+  local_action: command scp -P {{ ansible_port | default(22) }} -r ../bin/pip {{ ansible_host }}:/tmp/ansible-installer/bin
+
+- name: Install python
+  raw: "/tmp/ansible-installer/scripts/install.sh --python-only"
