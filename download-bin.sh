@@ -10,7 +10,7 @@ if [ -e $root_path/bin ]; then
   exit 1
 fi
 
-DOWNLOAD_URL="https://ansible-installer-bin.s3.ap-northeast-2.amazonaws.com/1.0.x/bin.tgz"
+DOWNLOAD_URL="https://ansible-installer-bin.s3.ap-northeast-2.amazonaws.com/1.1.x/bin.tgz"
 HAS_CURL="$(type "curl" &>/dev/null && echo true || echo false)"
 HAS_WGET="$(type "wget" &>/dev/null && echo true || echo false)"
 
