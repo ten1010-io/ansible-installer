@@ -114,9 +114,10 @@ function from0() {
 if [ "$minor_version" = "0" ] ||
   [ "$minor_version" = "1" ] ||
   [ "$minor_version" = "2" ] ||
-  [ "$minor_version" = "3" ]; then
+  [ "$minor_version" = "3" ] ||
+  [ "$minor_version" = "4" ]; then
   from0
 else
-  echo "error: The only minor version from 0 to 3 of ubuntu22.04 is supported"
+  echo "error: The only minor version from 0 to 4 of ubuntu22.04 is supported"
   exit 1
 fi
