@@ -1,5 +1,3 @@
-source $scripts_path/os.sh
-
 function ensure_bin_directory_exist() {
   if [ ! -e $root_path/bin ]; then
     echo "error: Directory \"bin\" does not exist. please execute \"download-bin.sh\" first"
@@ -19,9 +17,3 @@ function check_installed() {
   fi
   echo "false"
 }
-
-get_os_information
-import_os_dependent_functions
-python_version=$(get_python_version)
-python_command="python$python_version"
-pip_command="pip$python_version"
