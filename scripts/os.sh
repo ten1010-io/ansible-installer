@@ -67,3 +67,9 @@ function import_os_dependent_functions() {
     exit 1
   fi
 }
+
+get_os_information
+import_os_dependent_functions
+python_version=$(get_python_version)
+python_command="python$python_version"
+pip_command="pip$python_version"

@@ -3,6 +3,7 @@ root_path="$( cd -- "$(dirname "$0")/.." >/dev/null 2>&1 ; pwd -P )"
 scripts_path=$root_path/scripts
 
 source $scripts_path/common.sh
+source $scripts_path/os.sh
 
 function parse_options() {
   VALID_ARGS=$(getopt -o h --long python-only -- "$@")
